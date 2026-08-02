@@ -1,69 +1,7 @@
-import Fastify from "fastify";
+import { buildApp } from "./app.js";
 
-const app = Fastify({
-    logger: true,
-})
+const app = buildApp();
 
-app.get("/", async (_request, reply) => {
-  return reply
-    .type("text/html; charset=utf-8")
-    .send(`
-      <!doctype html>
-      <html lang="es">
-        <head>
-          <meta charset="UTF-8">
-          <title>Web Quality Testbed</title>
-        </head>
-
-        <body>
-          <main>
-            <h1>Web Quality Testbed</h1>
-
-            <p>
-              This page has controlled resources to test different testing systems.
-            </p>
-
-            <ul>
-              <li>
-                <a href="/fixtures/links/working">
-                  Functional Link
-                </a>
-              </li>
-
-              <li>
-                <a href="/fixtures/links/broken">
-                  Broken Link
-                </a>
-              </li>
-              <li>
-                <a href="/fixtures/links/redirect">
-                  Redirect Link 
-                <a/>
-              </li>
-            </ul>
-          </main>
-        </body>
-      </html>
-    `);
-});
-
-app.get("/fixtures/links/working", async (_request, reply) => {
-    return reply
-        .type("text/html; charset=utf-8")
-        .send("<h1>Functional fixture</h1>")
-});
-
-app.get("/fixtures/links/redirect", async (_request, reply) => {
-    return reply
-      .redirect("/fixtures/links/working")
-});
-
-app.get("/fixtures/links/broken", async (_request, reply) => {
-    return reply
-        .code(404)
-        .type("text/html; charset=utf-8")
-        .send("<h1> Controlled 404 fixture</h1>")
-});
 
 async function startServer(): Promise<void> {
     try {
