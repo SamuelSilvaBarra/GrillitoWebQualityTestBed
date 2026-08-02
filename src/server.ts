@@ -20,21 +20,25 @@ app.get("/", async (_request, reply) => {
             <h1>Web Quality Testbed</h1>
 
             <p>
-              Esta página contiene recursos controlados para probar
-              un web scraper.
+              This page has controlled resources to test different testing systems.
             </p>
 
             <ul>
               <li>
                 <a href="/fixtures/links/working">
-                  Link funcional
+                  Functional Link
                 </a>
               </li>
 
               <li>
                 <a href="/fixtures/links/broken">
-                  Link roto
+                  Broken Link
                 </a>
+              </li>
+              <li>
+                <a href="/fixtures/links/redirect">
+                  Redirect Link 
+                <a/>
               </li>
             </ul>
           </main>
@@ -47,6 +51,11 @@ app.get("/fixtures/links/working", async (_request, reply) => {
     return reply
         .type("text/html; charset=utf-8")
         .send("<h1>Functional fixture</h1>")
+});
+
+app.get("/fixtures/links/redirect", async (_request, reply) => {
+    return reply
+      .redirect("/fixtures/links/working")
 });
 
 app.get("/fixtures/links/broken", async (_request, reply) => {
