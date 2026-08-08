@@ -5,8 +5,9 @@ import Fastify, {
     type FastifyInstance,
     type FastifyServerOptions,
 } from "fastify"
-
 import fastifyStatic from "@fastify/static";
+import fastifyView from "@fastify/view";
+import handlebars from 'handlebars' 
 
 import { registerPageRoutes } from "./routes/pages.routes.js"
 import { registerLinkFixtureRoutes } from "./routes/link-fixtures.routes.js"
@@ -19,10 +20,19 @@ export function buildApp(
     options: FastifyServerOptions = {},
 ): FastifyInstance {
     const app = Fastify(options);
+    
     app.register(fastifyStatic, {
         root: join(currentDirectory, "../public"),
         prefix: "/static/",
-    })
+    });
+
+    app.register(fastifyView, {
+        engine: {
+            handlebars,
+        },
+        root: join(currentDirectory, "../views"),
+    });
+    
     app.register(registerPageRoutes);
     app.register(registerLinkFixtureRoutes);
     
