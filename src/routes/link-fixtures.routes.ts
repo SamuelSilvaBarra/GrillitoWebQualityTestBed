@@ -9,7 +9,7 @@ export async function registerLinkFixtureRoutes(
             .send("<h1>Functional fixture</h1>")
     });
 
-    app.get("/fixtures/links/redirect", async (_request, reply) => {
+    app.get("/fixtures/links/redirected", async (_request, reply) => {
         return reply
         .redirect("/fixtures/links/working")
     });
@@ -18,6 +18,6 @@ export async function registerLinkFixtureRoutes(
         return reply
             .code(404)
             .type("text/html; charset=utf-8")
-            .send("<h1> Controlled 404 fixture</h1>")
+            .send("<h1>Controlled 404 fixture</h1>")
     });
 }
