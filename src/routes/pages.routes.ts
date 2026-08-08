@@ -35,12 +35,41 @@ export async function registerPageRoutes(
                     </a>
                 </li>
                 <li>
-                    <a href="/fixtures/links/redirect">
+                    <a href="/fixtures/links/redirected">
                     Redirect Link 
                     <a/>
                 </li>
                 </ul>
+           
+                <section>
+                    <h2>Image fixtures</h2>
+                    <article>
+                        <h3>Valid image</h3>
+                        <img
+                        src="/static/images/valid-image.svg"
+                        alt="valid fixture"
+                        width="320"
+                        height="180"
+                        >
+                        <img
+                        src="/static/images/grillito.svg"
+                        alt="Grillo"
+                        width="320"
+                        height="180"
+                        >
+                    </article>
+                    <article>
+                        <h3>Broken image</h3>
+                        <img
+                        src="/static/images/broken-image.svg"
+                        alt="Broken fixture"
+                        width="320"
+                        height="180"
+                        >
+                    </article>
+                </section> 
             </main>
+
             </body>
         </html>
         `);

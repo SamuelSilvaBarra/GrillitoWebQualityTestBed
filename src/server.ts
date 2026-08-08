@@ -1,6 +1,8 @@
 import { buildApp } from "./app.js";
 
-const app = buildApp();
+const app = buildApp({
+    logger: true,
+});
 
 
 async function startServer(): Promise<void> {
