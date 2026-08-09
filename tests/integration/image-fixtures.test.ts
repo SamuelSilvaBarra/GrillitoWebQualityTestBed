@@ -27,10 +27,10 @@ describe("Image fixtures", () => {
     expect(response.headers["content-type"]).toContain("image/svg+xml")
     });
     
-    it("Returns 404 for at unexpected controlled image", async () => {
+    it("Returns 404 for missing image", async () => {
         const response = await app.inject({
         method: "GET",
-        url: "/static/images/broken-image.svg",
+        url: "/static/images/missing-image.svg",
     });
     expect(response.statusCode).toBe(404)
     expect(response.body).toContain("Not Found")
