@@ -1,6 +1,6 @@
 import type { ScenarioViewModel } from "./scenario.view-models.js";
 import type { DemoScenario } from "../domain/scenario.js";
-import { IMAGE_FIXTURES, LINK_FIXTURES, SPELLING_FIXTURES, VIDEO_FIXTURES } from "./scenario.catalogs.js";
+import { IMAGE_FIXTURES, LINK_FIXTURES, PDF_FIXTURES, SPELLING_FIXTURES, VIDEO_FIXTURES } from "./scenario.catalogs.js";
 
 export function presentScenario( scenario: DemoScenario ): ScenarioViewModel{
     return {
@@ -16,6 +16,9 @@ export function presentScenario( scenario: DemoScenario ): ScenarioViewModel{
         videos: scenario.videos.map(
             (variant) => VIDEO_FIXTURES[variant]
             ),
+        pdf: scenario.pdf.map(
+            (variant) => PDF_FIXTURES[variant]
+        ),
     };
     
 }

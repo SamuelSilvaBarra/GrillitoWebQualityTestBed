@@ -10,6 +10,7 @@ describe("pressetScenario", () => {
             links: ["broken"],
             images: [],
             videos: [],
+            pdf: [],
         };
         
         const result = presentScenario(scenario);
@@ -27,6 +28,7 @@ describe("pressetScenario", () => {
             links: [],
             images: [],
             videos: [],
+            pdf: [],
         };
         const result = presentScenario(scenario)
 
@@ -42,6 +44,7 @@ describe("pressetScenario", () => {
             links: [],
             images: ["missing"],
             videos: [],
+            pdf: [],
         }
         const result = presentScenario(scenario)
 
@@ -58,6 +61,7 @@ describe("pressetScenario", () => {
             links: [],
             images: [],
             videos: ["missing"],
+            pdf: [],
         };
         const result = presentScenario(scenario)
         expect(result.videos).toHaveLength(1);
@@ -65,6 +69,21 @@ describe("pressetScenario", () => {
         expect(result.videos[0]?.src).toBe("/static/videos/missing-video.mp4")
         expect(result.videos[0]?.type).toBe("video/mp4")
         expect(result.videos[0]?.label).toBe("Missing video")
+    });
+
+    it("Maps a PDF variant to its view model", () => {
+        const scenario: DemoScenario = {
+            spelling: [],
+            links: [],
+            images: [],
+            videos: [],
+            pdf: ["missing"]
+        }
+        const result = presentScenario(scenario)
+        expect(result.pdf).toHaveLength(1);
+        expect(result.pdf[0]?.variant).toBe("missing")
+        expect(result.pdf[0]?.label).toBe("Missing PDF")
+        expect(result.pdf[0]?.href).toBe("/static/pdf/missing-pdf.pdf")
     });
 
 });

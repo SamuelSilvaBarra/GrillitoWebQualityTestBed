@@ -1,5 +1,5 @@
-import type { LinkVariant, ImageVariant, SpellingVariant, VideoVariant } from "../domain/fixture-variants.js"
-import type { LinkFixtureView, ImageFixtureView, SpellingFixtureView, VideoFixtureView } from "./scenario.view-models.js"
+import type { LinkVariant, ImageVariant, SpellingVariant, VideoVariant, PdfVariant } from "../domain/fixture-variants.js"
+import type { LinkFixtureView, ImageFixtureView, SpellingFixtureView, VideoFixtureView, PdfFixtureView } from "./scenario.view-models.js"
 
 
 export const LINK_FIXTURES: Record<LinkVariant, LinkFixtureView> = {
@@ -64,4 +64,17 @@ export const SPELLING_FIXTURES: Record<SpellingVariant, SpellingFixtureView> = {
         label: "Incorrect spelling",
         text: "Helllow orld!"
     }
+}
+
+export const PDF_FIXTURES: Record<PdfVariant, PdfFixtureView> = {
+    valid: {
+        variant: "valid",
+        label: "Valid PDF",
+        href: "/static/pdf/valid-pdf.pdf"
+    },
+    missing: {
+        variant: "missing",
+        label: "Missing PDF",
+        href: "/static/pdf/missing-pdf.pdf"
+    },
 }

@@ -1,4 +1,4 @@
-import type { LinkVariant, ImageVariant, SpellingVariant, VideoVariant } from "../domain/fixture-variants.js"
+import type { LinkVariant, ImageVariant, SpellingVariant, VideoVariant, PdfVariant } from "../domain/fixture-variants.js"
 
 export type LinkFixtureView = {
     readonly variant: LinkVariant;
@@ -26,9 +26,16 @@ export type VideoFixtureView = {
     readonly type: string;
 }
 
+export type PdfFixtureView = {
+    readonly variant: PdfVariant;
+    readonly label: string;
+    readonly href: string;   
+}
+
 export type ScenarioViewModel = {
     readonly links: readonly LinkFixtureView[];
     readonly images: readonly ImageFixtureView[];
     readonly spelling: readonly SpellingFixtureView[];
     readonly videos: readonly VideoFixtureView[];
+    readonly pdf: readonly PdfFixtureView[];
 }
