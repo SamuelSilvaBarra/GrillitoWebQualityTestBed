@@ -50,6 +50,18 @@
                     </video>
                 {{/each}}
         </section>
+        <section>
+            <h2>PDF Feature</h2>
+            <ul>
+                {{#each scenario.pdf}}
+                <li>
+                    <a href="{{href}}">
+                        {{label}}
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </section>
     </main>
     </body>
 </html>
