@@ -10,3 +10,7 @@ export type ImageVariant =
 export type SpellingVariant = 
     | "correct"
     | "incorrect";
+
+export type VideoVariant = 
+    | "working"
+    | "missing"

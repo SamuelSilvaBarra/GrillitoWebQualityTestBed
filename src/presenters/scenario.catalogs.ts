@@ -1,5 +1,5 @@
-import type { LinkVariant, ImageVariant, SpellingVariant } from "../domain/fixture-variants.js"
-import type { LinkFixtureView, ImageFixtureView, SpellingFixtureView } from "./scenario.view-models.js"
+import type { LinkVariant, ImageVariant, SpellingVariant, VideoVariant } from "../domain/fixture-variants.js"
+import type { LinkFixtureView, ImageFixtureView, SpellingFixtureView, VideoFixtureView } from "./scenario.view-models.js"
 
 
 export const LINK_FIXTURES: Record<LinkVariant, LinkFixtureView> = {
@@ -27,14 +27,29 @@ export const IMAGE_FIXTURES: Record<ImageVariant, ImageFixtureView> = {
     working: {
         variant: "working",
         label: "Valid image",
-        src: "/static/images/valid-image.svg",
+        src: "/static/images/grillito.svg",
         alt: "valid fixture",    
     },
     missing: {
         variant: "missing",
         label: "Missing image",
         src: "/static/images/missing-image.svg",
-        alt: "invalid fixture"
+        alt: "invalid fixture",
+    }
+}
+
+export const VIDEO_FIXTURES: Record<VideoVariant, VideoFixtureView> = {
+    working:{
+        variant: "working",
+        label: "Valid video",
+        src: "/static/videos/valid-video.mp4",
+        type: "video/mp4",
+    },
+    missing: {
+        variant: "missing",
+        label: "Missing video",
+        src: "/static/videos/missing-video.mp4",
+        type: "video/mp4"
     }
 }
 

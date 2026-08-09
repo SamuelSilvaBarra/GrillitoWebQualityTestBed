@@ -9,6 +9,7 @@ describe("pressetScenario", () => {
             spelling: [],
             links: ["broken"],
             images: [],
+            videos: [],
         };
         
         const result = presentScenario(scenario);
@@ -25,6 +26,7 @@ describe("pressetScenario", () => {
             spelling: ["incorrect"],
             links: [],
             images: [],
+            videos: [],
         };
         const result = presentScenario(scenario)
 
@@ -39,6 +41,7 @@ describe("pressetScenario", () => {
             spelling: [],
             links: [],
             images: ["missing"],
+            videos: [],
         }
         const result = presentScenario(scenario)
 
@@ -47,5 +50,21 @@ describe("pressetScenario", () => {
         expect(result.images[0]?.label).toBe("Missing image")
         expect(result.images[0]?.src).toBe("/static/images/missing-image.svg")
         expect(result.images[0]?.alt).toBe("invalid fixture")
-    })
+    });
+
+    it("Maps a video variant to its view model", () => {
+        const scenario: DemoScenario = {
+            spelling: [],
+            links: [],
+            images: [],
+            videos: ["missing"],
+        };
+        const result = presentScenario(scenario)
+        expect(result.videos).toHaveLength(1);
+        expect(result.videos[0]?.variant).toBe("missing")
+        expect(result.videos[0]?.src).toBe("/static/videos/missing-video.mp4")
+        expect(result.videos[0]?.type).toBe("video/mp4")
+        expect(result.videos[0]?.label).toBe("Missing video")
+    });
+
 });

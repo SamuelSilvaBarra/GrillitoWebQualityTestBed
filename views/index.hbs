@@ -37,13 +37,17 @@
                 {{#each scenario.images}}
                 <article>
                     <h3>{{label}}</h3>
-                    <img
-                    src="{{src}}"
-                    alt="{{alt}}"
-                    width="320"
-                    height="180"
-                    >
+                    <img src="{{src}}" alt="{{alt}}" width="320" height="180" >
                 </article>
+                {{/each}}
+        </section>
+        <section>
+            <h2>Video Fixtures</h2>
+                {{#each scenario.videos}}
+                    <h3>{{label}}</h3>
+                    <video width="320" height="180" controls>
+                        <source src="{{src}}" type="{{type}}">
+                    </video>
                 {{/each}}
         </section>
     </main>
