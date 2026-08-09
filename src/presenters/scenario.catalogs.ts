@@ -41,12 +41,12 @@ export const IMAGE_FIXTURES: Record<ImageVariant, ImageFixtureView> = {
 export const SPELLING_FIXTURES: Record<SpellingVariant, SpellingFixtureView> = {
     correct: {
         variant: "correct",
-        label: "Without Spelling errors",
+        label: "Correct spelling",
         text: "Hello world!"
     },
     incorrect: {
         variant: "incorrect",
-        label: "With Spelling errors",
+        label: "Incorrect spelling",
         text: "Helllow orld!"
     }
 }
