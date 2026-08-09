@@ -14,3 +14,7 @@ export type SpellingVariant =
 export type VideoVariant = 
     | "working"
     | "missing"
+
+export type PdfVariant =
+    | "valid"
+    | "missing";
