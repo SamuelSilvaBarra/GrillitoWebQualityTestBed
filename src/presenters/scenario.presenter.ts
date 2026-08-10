@@ -16,7 +16,7 @@ export function presentScenario( scenario: DemoScenario ): ScenarioViewModel{
         videos: scenario.videos.map(
             (variant) => VIDEO_FIXTURES[variant]
             ),
-        pdf: scenario.pdf.map(
+        pdfs: scenario.pdfs.map(
             (variant) => PDF_FIXTURES[variant]
         ),
     };

@@ -5,7 +5,7 @@ export interface DemoScenario {
     readonly links: readonly LinkVariant[];
     readonly images: readonly ImageVariant[];
     readonly videos: readonly VideoVariant[];
-    readonly pdf: readonly PdfVariant[]; 
+    readonly pdfs: readonly PdfVariant[]; 
 }
 
 export const defaultScenario: DemoScenario = {
@@ -13,5 +13,5 @@ export const defaultScenario: DemoScenario = {
     links: ["working", "broken", "redirect"],
     images: ["working", "missing"],
     videos: ["working", "missing"],
-    pdf: ["valid", "missing"], 
+    pdfs: ["valid", "missing"], 
 };

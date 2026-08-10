@@ -10,7 +10,7 @@ describe("pressetScenario", () => {
             links: ["broken"],
             images: [],
             videos: [],
-            pdf: [],
+            pdfs: [],
         };
         
         const result = presentScenario(scenario);
@@ -28,7 +28,7 @@ describe("pressetScenario", () => {
             links: [],
             images: [],
             videos: [],
-            pdf: [],
+            pdfs: [],
         };
         const result = presentScenario(scenario)
 
@@ -44,7 +44,7 @@ describe("pressetScenario", () => {
             links: [],
             images: ["missing"],
             videos: [],
-            pdf: [],
+            pdfs: [],
         }
         const result = presentScenario(scenario)
 
@@ -61,7 +61,7 @@ describe("pressetScenario", () => {
             links: [],
             images: [],
             videos: ["missing"],
-            pdf: [],
+            pdfs: [],
         };
         const result = presentScenario(scenario)
         expect(result.videos).toHaveLength(1);
@@ -77,13 +77,13 @@ describe("pressetScenario", () => {
             links: [],
             images: [],
             videos: [],
-            pdf: ["missing"]
+            pdfs: ["missing"]
         }
         const result = presentScenario(scenario)
-        expect(result.pdf).toHaveLength(1);
-        expect(result.pdf[0]?.variant).toBe("missing")
-        expect(result.pdf[0]?.label).toBe("Missing PDF")
-        expect(result.pdf[0]?.href).toBe("/static/pdf/missing-pdf.pdf")
+        expect(result.pdfs).toHaveLength(1);
+        expect(result.pdfs[0]?.variant).toBe("missing")
+        expect(result.pdfs[0]?.label).toBe("Missing PDF")
+        expect(result.pdfs[0]?.href).toBe("/static/pdf/missing-pdf.pdf")
     });
 
 });

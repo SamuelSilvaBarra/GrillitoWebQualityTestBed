@@ -37,5 +37,5 @@ export type ScenarioViewModel = {
     readonly images: readonly ImageFixtureView[];
     readonly spelling: readonly SpellingFixtureView[];
     readonly videos: readonly VideoFixtureView[];
-    readonly pdf: readonly PdfFixtureView[];
+    readonly pdfs: readonly PdfFixtureView[];
 }
