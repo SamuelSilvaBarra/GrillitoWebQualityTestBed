@@ -1,4 +1,3 @@
-import type { FastifyInstance } from "fastify";
 import type { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 
 import { presentScenario } from "../presenters/scenario.presenter.js";
