@@ -1,6 +1,6 @@
 import type { DemoScenario } from "../domain/scenario.js";
 import { defaultScenario } from "../domain/scenario.js"
-import type { ScenarioQuery } from "../schemas/scenario.query.schema.js"
+import type { ScenarioQuery } from "../schemas/scenario-query.schema.js"
 
 export function buildScenario( query: ScenarioQuery,): DemoScenario {
     
