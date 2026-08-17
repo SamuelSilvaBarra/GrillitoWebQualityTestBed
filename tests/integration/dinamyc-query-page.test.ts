@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, } from "vitest";
 
 import { buildApp } from "../../src/app.js";
 
-describe("Demo HTML Features", () => {
+describe("Query HTML Features", () => {
     let app: FastifyInstance;
 
     beforeEach(() => {
