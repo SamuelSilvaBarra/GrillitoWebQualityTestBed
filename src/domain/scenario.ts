@@ -1,4 +1,11 @@
 import type { ImageVariant, LinkVariant, PdfVariant, SpellingVariant, VideoVariant } from "./fixture-variants.js";
+import { healthy, allErrors, allFixtures, brokenMedia } from "./scenario.presets.js";
+
+export type ScenarioName = 
+    | "healthy"
+    | "all-errors"
+    | "all-fixtures"
+    | "broken-media";
 
 export interface DemoScenario {
     readonly spelling: readonly SpellingVariant[];
@@ -8,10 +15,10 @@ export interface DemoScenario {
     readonly pdfs: readonly PdfVariant[]; 
 }
 
-export const defaultScenario: DemoScenario = {
-    spelling: ["correct", "incorrect"],
-    links: ["working", "broken", "redirect"],
-    images: ["working", "missing"],
-    videos: ["working", "missing"],
-    pdfs: ["valid", "missing"], 
-};
+export const SCENARIO_PRESETS:
+    Record<ScenarioName, DemoScenario> = {
+        "healthy": healthy,
+        "all-errors": allErrors,
+        "all-fixtures": allFixtures,
+        "broken-media": brokenMedia,
+    }
