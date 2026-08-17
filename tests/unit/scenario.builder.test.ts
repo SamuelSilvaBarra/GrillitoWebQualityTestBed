@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { buildScenario } from "../../src/services/scenario.builder.js"
-import { defaultScenario } from "../../src/domain/scenario.js"
+import { defaultScenario } from "../../src/domain/scenario.presets.js"
 
 
 describe("buildScenario", () => {
