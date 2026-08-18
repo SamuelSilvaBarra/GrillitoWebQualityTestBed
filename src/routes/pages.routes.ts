@@ -1,7 +1,6 @@
 import type { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 
-import { presentScenario } from "../presenters/scenario.presenter.js";
-import { defaultScenario } from "../domain/scenario.presets.js"
+import { presentScenario, presentScenarioCatalog } from "../presenters/scenario.presenter.js";
 import { ScenarioQuerySchema } from "../schemas/scenario-query.schema.js";
 import { buildScenario } from "../services/scenario.builder.js";
 import { ScenarioParamsSchema } from "../schemas/scenario-params.schema.js";
@@ -13,11 +12,11 @@ export const registerPageRoutes: FastifyPluginAsyncTypebox =
     
     app.get("/", async (_request, reply) => {
     
-            const scenarioView = presentScenario(defaultScenario);
+            const options = presentScenarioCatalog();
         
             return reply.viewAsync("index.hbs", {
             title: "Web Quality Testbed",
-            scenario: scenarioView,
+            options,
             });
         },
     );
@@ -32,7 +31,7 @@ export const registerPageRoutes: FastifyPluginAsyncTypebox =
             const scenario = buildScenario(request.query);
 
             const scenarioView = presentScenario(scenario);
-            return reply.viewAsync("index.hbs", {
+            return reply.viewAsync("demo.hbs", {
                 title: "Web Quality Testbed",
                 scenario: scenarioView
             });
@@ -50,7 +49,7 @@ export const registerPageRoutes: FastifyPluginAsyncTypebox =
 
             const scenarioView = presentScenario(scenario);
             
-            return reply.viewAsync("index.hbs", {
+            return reply.viewAsync("demo.hbs", {
                 title: "Web Quality Testbed",
                 scenario: scenarioView
             });
