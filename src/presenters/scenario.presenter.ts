@@ -22,3 +22,13 @@ export function presentScenario( scenario: DemoScenario ): ScenarioViewModel{
     };
     
 }
+
+export function presentScenarioCatalog(){
+    return {
+        spelling: Object.values(SPELLING_FIXTURES),
+        links: Object.values(LINK_FIXTURES),
+        images: Object.values(IMAGE_FIXTURES),
+        videos: Object.values(VIDEO_FIXTURES),
+        pdfs: Object.values(PDF_FIXTURES),
+    }
+}

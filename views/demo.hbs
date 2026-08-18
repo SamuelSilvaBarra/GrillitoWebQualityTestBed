@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    </head>
+
+    <body>
+    <main>
+        <section>
+            <h2>Spelling fixtures</h2>
+            {{#each scenario.spelling}}
+            <h3>{{label}}</h3>
+            <p>
+                {{text}}
+            </p>
+            {{/each}}
+        </section>
+        <section>
+            <h2>Links Fixtures</h2>
+            <ul>
+                {{#each scenario.links}}
+                    <li>
+                        <a href="{{href}}">
+                            {{label}}
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+        </section>
+        <section>
+            <h2>Image fixtures</h2>
+                {{#each scenario.images}}
+                <article>
+                    <h3>{{label}}</h3>
+                    <img src="{{src}}" alt="{{alt}}" width="320" height="180" >
+                </article>
+                {{/each}}
+        </section>
+        <section>
+            <h2>Video Fixtures</h2>
+                {{#each scenario.videos}}
+                    <h3>{{label}}</h3>
+                    <video width="320" height="180" controls>
+                        <source src="{{src}}" type="{{type}}">
+                    </video>
+                {{/each}}
+        </section>
+        <section>
+            <h2>PDF Feature</h2>
+            <ul>
+                {{#each scenario.pdfs}}
+                <li>
+                    <a href="{{href}}">
+                        {{label}}
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </section>
+    </main>
+    </body>
+</html>

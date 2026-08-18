@@ -26,7 +26,12 @@ describe("Home HTML", () => {
     expect(response.statusCode).toBe(200);
     expect(response.headers["content-type"]).toContain("text/html")
     expect(response.body).toContain("Web Quality Testbed")
+    expect(response.body).toContain("Spelling")
+    expect(response.body).toContain("Links")
+    expect(response.body).toContain("Images")
+    expect(response.body).toContain("Videos")
+    expect(response.body).toContain("PDFs")
+    expect(response.body).toContain('action="/demo"')
+    expect(response.body).toContain('method="GET"')
     });
-
-
 });

@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { DemoScenario } from "../../src/domain/scenario.js"
 import { presentScenario } from "../../src/presenters/scenario.presenter.js"
 
-describe("pressetScenario", () => {
+describe("presentScenario", () => {
     it("Maps a link variant to its view model", () => {
         const scenario: DemoScenario = {
             spelling: [],

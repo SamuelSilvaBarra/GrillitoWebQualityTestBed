@@ -7,61 +7,89 @@
 
     <body>
     <main>
+    <form action="/demo" method="GET">
+
         <h1>{{title}}</h1>
         <p>
         This page has controlled resources to test different testing systems.
         </p>
-        <section>
-            <h2>Spelling fixtures</h2>
-            {{#each scenario.spelling}}
-            <h3>{{label}}</h3>
-            <p>
-                {{text}}
-            </p>
+        
+        <fieldset>
+            <legend>Spelling</legend>
+            {{#each options.spelling}}
+            <label>
+                <input
+                    type="checkbox"
+                    name="spelling"
+                    value="{{variant}}"
+                >
+                {{label}}
+            </label>
             {{/each}}
-        </section>
-        <section>
-            <h2>Links Fixtures</h2>
-            <ul>
-                {{#each scenario.links}}
-                    <li>
-                        <a href="{{href}}">
-                            {{label}}
-                        </a>
-                    </li>
-                {{/each}}
-            </ul>
-        </section>
-        <section>
-            <h2>Image fixtures</h2>
-                {{#each scenario.images}}
-                <article>
-                    <h3>{{label}}</h3>
-                    <img src="{{src}}" alt="{{alt}}" width="320" height="180" >
-                </article>
-                {{/each}}
-        </section>
-        <section>
-            <h2>Video Fixtures</h2>
-                {{#each scenario.videos}}
-                    <h3>{{label}}</h3>
-                    <video width="320" height="180" controls>
-                        <source src="{{src}}" type="{{type}}">
-                    </video>
-                {{/each}}
-        </section>
-        <section>
-            <h2>PDF Feature</h2>
-            <ul>
-                {{#each scenario.pdfs}}
-                <li>
-                    <a href="{{href}}">
-                        {{label}}
-                    </a>
-                </li>
-                {{/each}}
-            </ul>
-        </section>
+        </fieldset>
+
+        <fieldset>
+            <legend>Links</legend>
+            {{#each options.links}}
+            <label>
+                <input
+                    type="checkbox"
+                    name="links"
+                    value="{{variant}}"
+                >
+                {{label}}
+            </label>
+            {{/each}}
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Images</legend>
+            {{#each options.images}}
+            <label>
+                <input
+                    type="checkbox"
+                    name="images"
+                    value="{{variant}}"
+                >
+                {{label}}
+            </label>
+            {{/each}}
+        </fieldset>
+
+        <fieldset>
+            <legend>Videos</legend>
+            {{#each options.videos}}
+            <label>
+                <input
+                    type="checkbox"
+                    name="videos"
+                    value="{{variant}}"
+                >
+                {{label}}
+            </label>
+            {{/each}}
+        </fieldset>
+
+        <fieldset>
+            <legend>PDFs</legend>
+            {{#each options.pdfs}}
+            <label>
+                <input
+                    type="checkbox"
+                    name="pdfs"
+                    value="{{variant}}"
+                >
+                {{label}}
+            </label>
+            {{/each}}
+        </fieldset>
+
+        <button type="submit">
+            Generate scenario
+        </button>
+
+    </form>
     </main>
     </body>
 </html>

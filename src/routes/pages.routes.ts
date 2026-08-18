@@ -1,20 +1,58 @@
-import type { FastifyInstance } from "fastify";
+import type { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 
-import { presentScenario } from "../presenters/scenario.presenter.js";
-import { defaultScenario } from "../domain/scenario.js"
+import { presentScenario, presentScenarioCatalog } from "../presenters/scenario.presenter.js";
+import { ScenarioQuerySchema } from "../schemas/scenario-query.schema.js";
+import { buildScenario } from "../services/scenario.builder.js";
+import { ScenarioParamsSchema } from "../schemas/scenario-params.schema.js";
+import { SCENARIO_PRESETS } from "../domain/scenario.js";
 
 
-export async function registerPageRoutes(
-    app: FastifyInstance,
-): Promise<void> {
+export const registerPageRoutes: FastifyPluginAsyncTypebox = 
+    async (app) => {
     
     app.get("/", async (_request, reply) => {
     
-        const scenarioView = presentScenario(defaultScenario);
-    
-        return reply.viewAsync("index.hbs", {
-         title: "Web Quality Testbed",
-         scenario: scenarioView,
-        });
-    });
+            const options = presentScenarioCatalog();
+        
+            return reply.viewAsync("index.hbs", {
+            title: "Web Quality Testbed",
+            options,
+            });
+        },
+    );
+        
+    app.get("/demo", 
+        {
+            schema: { 
+                querystring: ScenarioQuerySchema, 
+            }, 
+        }, 
+        async (request, reply) => {
+            const scenario = buildScenario(request.query);
+
+            const scenarioView = presentScenario(scenario);
+            return reply.viewAsync("demo.hbs", {
+                title: "Web Quality Testbed",
+                scenario: scenarioView
+            });
+        },
+    );
+
+    app.get("/scenarios/:name", 
+        {
+            schema: { 
+                params: ScenarioParamsSchema, 
+            }, 
+        }, 
+        async (request, reply) => {
+            const scenario = SCENARIO_PRESETS[request.params.name];
+
+            const scenarioView = presentScenario(scenario);
+            
+            return reply.viewAsync("demo.hbs", {
+                title: "Web Quality Testbed",
+                scenario: scenarioView
+            });
+        },
+    );
 }
