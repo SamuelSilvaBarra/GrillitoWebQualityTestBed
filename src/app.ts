@@ -11,6 +11,7 @@ import handlebars from 'handlebars'
 
 import { registerPageRoutes } from "./routes/pages.routes.js"
 import { registerLinkFixtureRoutes } from "./routes/link-fixtures.routes.js"
+import { registerApiRoutes } from "./routes/scenario-api.routes.js";
 
 const currentFilename = fileURLToPath(import.meta.url);
 const currentDirectory = dirname(currentFilename);
@@ -35,6 +36,7 @@ export function buildApp(
     
     app.register(registerPageRoutes);
     app.register(registerLinkFixtureRoutes);
+    app.register(registerApiRoutes);
     
     return app;
 }
