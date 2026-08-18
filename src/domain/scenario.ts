@@ -7,6 +7,12 @@ export type ScenarioName =
     | "all-fixtures"
     | "broken-media";
 
+export const SCENARIO_NAMES: readonly ScenarioName[] = [
+    "healthy",
+    "all-errors",
+    "all-fixtures",
+    "broken-media",
+];
 export interface DemoScenario {
     readonly spelling: readonly SpellingVariant[];
     readonly links: readonly LinkVariant[];
@@ -22,3 +28,10 @@ export const SCENARIO_PRESETS:
         "all-fixtures": allFixtures,
         "broken-media": brokenMedia,
     }
+
+export const SCENARIO_LABELS: Record<ScenarioName, string> = {
+    healthy: "Healthy",
+    "all-errors": "All Errors",
+    "all-fixtures": "All fixtures",
+    "broken-media": "Broken Media"
+}
