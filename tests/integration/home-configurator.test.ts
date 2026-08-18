@@ -31,6 +31,10 @@ describe("Home HTML", () => {
     expect(response.body).toContain("Images")
     expect(response.body).toContain("Videos")
     expect(response.body).toContain("PDFs")
+    expect(response.body).toContain("/scenarios/healthy")
+    expect(response.body).toContain("/scenarios/all-errors")
+    expect(response.body).toContain("/scenarios/all-fixtures")
+    expect(response.body).toContain("/scenarios/broken-media")
     expect(response.body).toContain('action="/demo"')
     expect(response.body).toContain('method="GET"')
     });

@@ -14,6 +14,19 @@
         This page has controlled resources to test different testing systems.
         </p>
         
+        <section>
+        <h2>Preset Scenarios</h2>
+        <p>
+            Run a predefined scenario.
+        </p>
+
+        {{#each presets}}
+            <a href="{{href}}">
+                {{label}}
+            </a>
+        {{/each}}
+        </section>
+
         <fieldset>
             <legend>Spelling</legend>
             {{#each options.spelling}}

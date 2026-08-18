@@ -1,4 +1,5 @@
 import type { LinkVariant, ImageVariant, SpellingVariant, VideoVariant, PdfVariant } from "../domain/fixture-variants.js"
+import type { ScenarioName } from "../domain/scenario.js";
 
 export type LinkFixtureView = {
     readonly variant: LinkVariant;
@@ -30,6 +31,12 @@ export type PdfFixtureView = {
     readonly variant: PdfVariant;
     readonly label: string;
     readonly href: string;   
+}
+
+export type ScenarioPresetView = {
+    readonly name: ScenarioName;
+    readonly label: string;
+    readonly href: string;
 }
 
 export type ScenarioViewModel = {
